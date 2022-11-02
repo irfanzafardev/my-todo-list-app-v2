@@ -6,10 +6,17 @@ import { useSelector } from 'react-redux';
 const Detail = () => {
   const navigate = useNavigate()
   const { id } = useParams()
+
   const toDos = useSelector(state => state.toDos.items)
-  const result = toDos.find(item => item.id === id);
-  const data = result
-  console.log(data)
+  const data = toDos.find(item => item.id === id);
+
+  // function mapStateToProps(state, ownProps) {
+  //   const { params } = ownProps.match;
+  //   const { id } = params;
+  //   // search for the todo associated to this id.
+  //   return { todo: getTodoById(state, id) }
+  // }
+
   return (
     <div className="detail-wrapper">
       <div className='box'>

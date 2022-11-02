@@ -23,6 +23,8 @@ const ToDoForm = () => {
   const onFormSubmit = (event) => {
     event.preventDefault()
     dispatch(addTodo({ id: id, title: titleInput, content: contentInput, completed: complete }))
+    setTitleInput('')
+    setContentInput('')
   }
   return (
     <div className='form-wrapper'>
@@ -33,7 +35,7 @@ const ToDoForm = () => {
           <label htmlFor="context" className="form-label align-self-center pt-2 ms-3">Content</label>
           <input type="text" className="form-control ms-3" placeholder="Enter the detail" id="context" value={contentInput} onChange={onContentChange} required></input>
         </div>
-        <div className="">
+        <div className="button">
           <button className='btn todo-button px-5 ms-3'>Add</button>
         </div>
       </form>

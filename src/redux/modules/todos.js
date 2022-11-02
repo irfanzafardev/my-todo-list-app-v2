@@ -1,4 +1,3 @@
-// initial state value
 const initialState = {
   items: [
     { id: '1', title: "Title", content: "Description", completed: false },
@@ -31,6 +30,14 @@ export const updateTodo = toDo => {
   }
 }
 
+// const getTodo = (state, id) =>
+//   state.items.find(todo => id === todo.id);
+
+// export const getTodoById = createSelector(
+//   [getTodo],
+//   todo => todo,
+// );
+
 // reducer
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -44,24 +51,17 @@ const reducer = (state = initialState, action) => {
       }
     case UPDATE_TODO:
       return {
-        // Again copy the entire state object
         ...state,
-        // This time, we need to make a copy of the old todos array
         items: state.items.map(todo => {
-          // If this isn't the todo item we're looking for, leave it alone
           if (todo.id !== action.payload) {
             return todo
           }
-
-          // We've found the todo that has to change. Return a copy:
           return {
             ...todo,
-            // Flip the completed flag
             completed: !todo.completed
           }
         })
       }
-    // break
     default:
       return state;
   }

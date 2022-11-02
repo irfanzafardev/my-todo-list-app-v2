@@ -34,7 +34,7 @@ const ToDoForm = () => {
           <input type="text" className="form-control ms-3" placeholder="Enter the detail" id="context" value={contentInput} onChange={onContentChange} required></input>
         </div>
         <div className="">
-          <button className='btn btn-primary todo-button px-5 ms-3'>Add</button>
+          <button className='btn todo-button px-5 ms-3'>Add</button>
         </div>
       </form>
     </div>

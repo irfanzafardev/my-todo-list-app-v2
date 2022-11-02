@@ -6,12 +6,23 @@
 form {
   padding: 20px 15px;
   border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .form {
   background-color: transparent;
   width: 50%;
+}
+
+.todo-button {
+  background-color: #6822D1;
+  color: #fff;
+}
+
+.todo-button:hover {
+  background-color: #4d08b4;
+  color: #fff;
 }
 
 li {

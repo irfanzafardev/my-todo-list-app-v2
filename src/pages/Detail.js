@@ -13,13 +13,15 @@ const Detail = () => {
   return (
     <div className="detail-wrapper">
       <div className='box'>
-        <h5>Detail item</h5>
-        <div className="item-detail mt-5">
+        <h5>Todo list item</h5>
+        <div className="item-detail my-5">
           <p>id: {id}</p>
-          <h4>title: {data.title}</h4>
-          <p>content: {data.content}</p>
+          <h4>Title: {data.title}</h4>
+          <p>Content: {data.content}</p>
         </div>
-        <button className='btn btn-secondary todo-button px-5' onClick={() => { navigate('/') }}>Back</button>
+        <div className="d-flex justify-content-end">
+          <button className='btn btn-secondary float-right px-5' onClick={() => { navigate('/') }}>Back</button>
+        </div>
       </div>
     </div>
   )

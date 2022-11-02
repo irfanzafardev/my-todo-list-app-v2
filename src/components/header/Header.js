@@ -8,7 +8,7 @@ const Header = () => {
           <div className="d-flex justify-content-between">
             <div className="">Personal Task</div>
           </div>
-          React
+          React Redux
         </div>
       </nav>
       <h2>My To-do List v2</h2>

@@ -1,9 +1,10 @@
 // initial state value
 const initialState = {
-  items: [{ id: '1', title: "Title", content: "Description", completed: false }, { id: '2', title: "Title", content: "Description", completed: true }]
+  items: [
+    { id: '1', title: "Title", content: "Description", completed: false },
+    { id: '2', title: "Title", content: "Description", completed: true }
+  ]
 }
-
-
 
 const ADD_TODO = 'my-app/todos/ADD_TODO'
 const DELETE_TODO = 'my-app/todos/DELETE_TODO'
@@ -42,23 +43,25 @@ const reducer = (state = initialState, action) => {
         items: state.items.filter((todo) => todo.id !== action.payload)
       }
     case UPDATE_TODO:
-      // state.map((items) => {
-      //   if (items.id === action.payload) {
-      //     return {
-      //       items: [...state.items, completed: !items.completed]
-      //     }
-      //   }
-      //   return item
-      // })
-      // return {
-      //   items: ...state.items, completed: !state.completed
-      // }
-      // return {
-      //   items: Object.assign({}, state, {
-      //     completed: !state.completed
-      //   })
-      // }
-      break
+      return {
+        // Again copy the entire state object
+        ...state,
+        // This time, we need to make a copy of the old todos array
+        items: state.items.map(todo => {
+          // If this isn't the todo item we're looking for, leave it alone
+          if (todo.id !== action.payload) {
+            return todo
+          }
+
+          // We've found the todo that has to change. Return a copy:
+          return {
+            ...todo,
+            // Flip the completed flag
+            completed: !todo.completed
+          }
+        })
+      }
+    // break
     default:
       return state;
   }

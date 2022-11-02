@@ -6,15 +6,15 @@ import { Link } from 'react-router-dom'
 const ToDoList = () => {
   const toDos = useSelector(state => state.toDos.items)
   const dispatch = useDispatch()
-  console.log(toDos)
-
-  const handleComplete = (todo) => {
-    dispatch(updateTodo(todo))
-  }
 
   const handleDelete = ({ id }) => {
     dispatch(deleteTodo(id))
   }
+
+  const handleComplete = ({ id }) => {
+    dispatch(updateTodo(id))
+  }
+
   return (
     <div className='list-wrapper mt-4'>
       <div className="incompleted mb-4">
@@ -46,7 +46,7 @@ const ToDoList = () => {
               <h4>{todo.title}</h4>
               <p>{todo.content}</p>
               <div className="action-btn d-flex">
-                <div className='button text-secondary'>Cancel</div>
+                <div className='button text-secondary' onClick={() => handleComplete(todo)}>Cancel</div>
                 <div className='button text-danger ms-3' onClick={() => handleDelete(todo)}> Delete</div>
               </div>
             </li>
